@@ -16,8 +16,8 @@ stop("The 'search' argument must be equal to \"random\", \"fwdstep\", \"exhausti
 
 run.mar.env<-environment()
 
-if(class(variables)=="MAR") variables<-variables$variables.selected
-if(class(restrictions)=="MAR") restrictions<-restrictions$restrictions.set
+if(inherits(variables, "MAR")) variables<-variables$variables.selected
+if(inherits(restrictions, "MAR")) restrictions<-restrictions$restrictions.set
 if(is.null(variables)) restrictions<-NULL
 
 #====================================================================================
@@ -99,7 +99,7 @@ restrictions->indexBCGlobal }
 
 { # 'restrictions' argument ERRORS and WARNINGS
 # ERROR: Stop if indexBCGlobal isn't a matrix (wrong restrictions argument class)
-if(class(indexBCGlobal)!="matrix"){
+if(!inherits(indexBCGlobal, "matrix")){
 stop("The 'restrictions' argument must be of class \"matrix\" or \"MAR\".  See ?run.mar")
 }
 # ERROR: Stop if indexBCGlobal dimensions do not match number of selected variables
@@ -279,8 +279,8 @@ MAR.results<-c(MAR.results,
 list(top.bestfit=top.bestfit.models))
 }
 
-if(export!=T&export!=F&class(export)!="character") {
-	export<-F
+if(export!=TRUE&export!=FALSE& !inherits(export, "character")) {
+	export<-FALSE
 	warning("MAR results not exported.  'export' argument must be a character string or logical")
 	}
 

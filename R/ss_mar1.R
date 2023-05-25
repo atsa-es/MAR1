@@ -2,11 +2,11 @@
 # ss.mar1 uses the model.object$bestfit to determine the zeros and fit a state-space MAR(1)
 #########################################################################
 ss.mar1=function(aggregated.data, MAR.obj=NULL, model=list(), control=list(),silent=FALSE){
-if(!require(MARSS))
+if(!requireNamespace("MARSS"))
   stop("The MARSS R package is required to run state-space MAR(1) models.\nPlease install and retry.\n",call.=FALSE)
 
 if(!missing(MAR.obj))
-  if(class(MAR.obj) != "MAR")
+  if(!inherits(MAR.obj, "MAR"))
     stop("MAR.obj must be a MAR object as output by run.mar().\n",call.=FALSE)
 
 #Set up the default model
@@ -92,7 +92,7 @@ if(identical(R.type,"diagonal and equal")){
 }
 if(identical(R.type,"zero")) R=matrix(0,n.var,n.var)
 if(identical(R.type,"identity")) R=diag(1,n.var)
-if(!MARSS:::is.diagonal(R)) stop("R needs to be a diagonal matrix.\n",call.=FALSE)
+if(!is.diagonal(R)) stop("R needs to be a diagonal matrix.\n",call.=FALSE)
 
 Q.type=model$Q
 #set up the Q matrix
@@ -152,14 +152,14 @@ x0.cmd[(n.var+1):(n.var+n.cov),1]=x0.cov
   
   marss.model=list(B=B.cmd, U=U, C="zero", Q=Q.cmd, Z=Z, A=A, D=D, R=R.cmd, x0=x0.cmd, tinitx=1)
   marss.dat=rbind(marss.var, marss.cov)
-  kem=MARSS(marss.dat, model=marss.model,control=control,silent=TRUE)
+  kem=MARSS::MARSS(marss.dat, model=marss.model,control=control,silent=TRUE)
   B.est=print(kem,what="B",silent=TRUE)
   B.rtn=B.est[1:n.var,1:n.var,drop=FALSE]
   C.rtn=B.est[1:n.var,(n.var+1):(n.var+n.cov),drop=FALSE]
   Q.rtn=print(kem,what="Q",silent=TRUE)[1:n.var,1:n.var,drop=FALSE]
   R.rtn=print(kem,what="R",silent=TRUE)[1:n.var,1:n.var,drop=FALSE]
 }else{ 
-    kem=MARSS(marss.dat, model=marss.model,control=control,silent=silent)
+    kem=MARSS::MARSS(marss.dat, model=marss.model,control=control,silent=silent)
     B.rtn=print(kem,what="B",silent=TRUE)
     C.rtn=print(kem,what="C",silent=TRUE)
     Q.rtn=print(kem,what="Q",silent=TRUE)

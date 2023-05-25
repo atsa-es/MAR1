@@ -3,7 +3,7 @@ plot.MAR<-function(x,y=NULL,...,legend=FALSE){
 if(missing(y)) all.list<-list(x) else all.list<-c(list(x),list(y),list(...))
 
 if(any(unlist(lapply(all.list,
-	function(x){if(class(x)=="MAR") TRUE else FALSE}))==FALSE)){
+	function(x){if(inherits(x, "MAR")) TRUE else FALSE}))==FALSE)){
 	stop("All objects to be plotted must be of class \"MAR\"")
 	}
 

@@ -74,7 +74,7 @@ tkbind(tt,"<Destroy>",function() tclvalue(change)<--9999)
 
 while(changeVal>=0){
 tkwait.variable(change)
-changeVal<-as.numeric(tclvalue(change)) #;print(changeVal)
+changeVal<-as.numeric(tclvalue(change)) 
 if(changeVal>0){
 	track[changeVal]<-track[changeVal]+1
 	if(track[changeVal]==3) track[changeVal]<-0

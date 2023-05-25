@@ -113,8 +113,9 @@ for(j in 1:length(drivers)){
 	eval(parse(text=line))
 }
 } else {
-for(i in 1:length(taxa)){tkgrid(tklabel(frame.covar,text="-",font=Ph))
-		tkgrid.rowconfigure(frame.covar,i,pad=2)}
+for(i in 1:length(taxa)){
+  tkgrid(tklabel(frame.covar,text="-",font=Ph))
+  tkgrid.rowconfigure(frame.covar,i,pad=2)}
 }
 
 #### print frames ####

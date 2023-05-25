@@ -1,12 +1,13 @@
 ## Imports
 importFrom(bestglm,bestglm,to.binary)
 importFrom(leaps,regsubsets)
-
-## export classes
-exportClasses(
-  MAR,
-  MARsummary,
-  MARtop)
+importFrom("grDevices", "dev.new", "dev.prev", "dev.set", "palette")
+importFrom("graphics", "abline", "barplot", "box", "hist", "layout",
+               "par", "points", "text")
+importFrom("stats", "AIC", "aggregate", "approx", "glm", "na.omit",
+               "runif", "sd")
+importFrom("utils", "flush.console", "stack", "write.table")
+import(tcltk)
 
 ## export functions
 export(
@@ -25,5 +26,6 @@ export(
 S3method(print, MARsummary)
 S3method(print, MAR)
 S3method(summary, MAR)
+S3method(plot, MAR)
 S3method(plot, MARtop)
 S3method(hist, MARtop)

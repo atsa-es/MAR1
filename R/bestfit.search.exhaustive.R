@@ -3,8 +3,6 @@ bestfit.search.exhaustive<-function(statevar,lagstate,covariate,P,R,Q,indexBGlob
 # INITIALIZE BEST-FIT MODEL SEARCH (lowest AIC):
 #====================================================================================
 
-#library(leaps)
-
 bestGlobalB<-matrix(0,nrow=P,ncol=P)
 bestGlobalC<-matrix(0,nrow=P,ncol=R)
 
@@ -55,8 +53,8 @@ sub.aics<-data.frame(AIC=TRUE,best.subsets)
 
 for(i in 1:nrow(best.subsets)){
 Xt<-X[,best.subsets[i,]]
-sub.glm<-glm(Y~.,data=data.frame(Xt))
-sub.aics[i,which(sub.aics[i,]==T)]<-c(AIC(sub.glm),sub.glm$coefficients[-1])
+sub.glm<-stats::glm(Y~.,data=data.frame(Xt))
+sub.aics[i,which(sub.aics[i,]==T)]<-c(stats::AIC(sub.glm),sub.glm$coefficients[-1])
 }
 
 sub.aics<-sub.aics[order(sub.aics$AIC),]
