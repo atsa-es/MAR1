@@ -29,10 +29,6 @@ The \pkg{MAR1} package includes the following basic functions:\cr
 
 }
 
-\note{
-This package uses the \pkg{tcltk} package to create pop-up windows.  On Mac OS X systems, installation of the \href{http://cran.r-project.org/bin/macosx/tools/tcltk-8.5.5-x11.dmg}{Tcl/Tk 8.5.5 library for X11} may be necessary before the Tcl/Tk interface can successfully load.  See \url{http://cran.r-project.org/bin/macosx/tools/} for details.
-}
-
 \author{
 Lindsay P. Scheef
 
