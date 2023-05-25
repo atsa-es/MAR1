@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">MAR1</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0</span>
       </span>
     </div>
 
@@ -52,6 +52,21 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/Getting_Started.html">Getting_Started</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
@@ -66,16 +81,39 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-The MAR1 package provides basic tools for preparing
-        ecological community time-series data for MAR modeling,
-        building MAR-1 models via model selection and bootstrapping,
-        and visualizing and exporting model results. It is intended to
-        make MAR analysis (sensu Ives et al. (2003) Analysis of
-        community stability and ecological interactions from
-        time-series data) a more accessible tool for anyone studying
-        community dynamics.  The user need not necessarily be familiar
-        with time-series modeling or command-based statistics programs
-        such as R.
+<div class="section level1">
+<div class="page-header"><h1 id="mar1package">MAR1package<a class="anchor" aria-label="anchor" href="#mar1package"></a>
+</h1></div>
+<p>Multivariate Autoregressive Modeling for Analysis of Community Time-Series Data</p>
+<div class="section level2">
+<h2 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
+</h2>
+<p>Ives et al. (2003) describe the model framework implemented in this package:</p>
+<p><span class="math display"><strong>X</strong>(<em>t</em>) = <strong>A</strong> + <strong>B</strong><strong>X</strong>(<em>t</em>−1) + <strong>C</strong><strong>U</strong>(<em>t</em>−1) + <strong>E</strong>(<em>t</em>)</span></p>
+<p>The first order multivariate autoregressive model may include both variates (factors expected to affect their own dynamics and the dynamics of other variates) and covariates (factors that may affect the dynamics of variates but are unlikely to be correspondingly influenced by them). The model estimates the value of each variate at time <span class="math inline"><em>t</em></span> as a linear function of the values of all variates and covariates at time <span class="math inline"><em>t</em> − 1</span>. The coefficients estimated in the MAR model represent the relative interaction strengths between each variate and covariate included in the analysis. }</p>
+</div>
+<div class="section level2">
+<h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a>
+</h2>
+<p>The MAR1 package includes the following basic functions:</p>
+<ul>
+<li><p><code>prepare.data</code> Formats a dataset into evenly-spaced time-steps and marks continuous blocks of time-steps in preparation for MAR analysis. The data can also be log-transformed or z-scored with this function.</p></li>
+<li><p><code>run.mar</code> Searches for and estimates a MAR model for a given dataset. The random best-fit model search and conditional least squares calculation components of this function are derived from Matlab scripts originally written by AR Ives and subsequently refined by SR Carpenter, KL Cottingham, and MD Scheuerell. Returns a list object of class MAR for which there are print, summary, and plot methods.</p></li>
+<li><p><code>export.MAR</code> Creates a new directory and exports all components of a MAR object into that directory as csv files.</p></li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="author">author<a class="anchor" aria-label="anchor" href="#author"></a>
+</h2>
+<p>Creator: Lindsay P. Scheef &lt;&gt;</p>
+<p>Maintainer: Eli Holmes &lt;&gt;</p>
+</div>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
+<p>Ives AR, Dennis B, Cottingham KL, and Carpenter SR (2003) Estimating community stability and ecological interactions from time-series data. Ecological Monographs 73:301-330</p>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -104,7 +142,8 @@ The MAR1 package provides basic tools for preparing
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Lindsay P. Scheef <br><small class="roles"> Maintainer </small>  </li>
+<li>Eli Holmes <br><small class="roles"> Maintainer </small> <a href="https://orcid.org/0000-0001-9128-8393" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Lindsay P. Scheef <br><small class="roles"> Author </small>  </li>
 </ul>
 </div>
 
@@ -116,7 +155,7 @@ The MAR1 package provides basic tools for preparing
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Lindsay P. Scheef.</p>
+<p>Developed by Eli Holmes, Lindsay P. Scheef.</p>
 </div>
 
 <div class="pkgdown">

@@ -1,0 +1,107 @@
+---
+title: "Getting_Started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting_Started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MAR1)
+```
+
+**These examples take 1-2 minutes to run**
+
+## Set up the data
+
+This uses the [run.mar()] arguments to set variables and restrictions. 
+
+```{r}
+data(L4.mar)
+colnames(L4.mar)
+```
+Select response (1) and covariates (2) for the model. The variables and covariates are specified with a vector that is the same length as the number of columns. 0s are not uses. 1s are response columns and 2s are covariate columns.
+
+```{r}
+myvar<-c(0,0,0,1,1,0,0,0,1,1,1,1,0,0,1,1,0,0,2,2,2)  
+```
+
+## Create the restriction matrix
+
+The next step is to set any B and D to 0 that will be fixed at 0. The shape of the restriction matrix has rows equal to the number of response variables" and columns equal to number of response variables plus the number of covariates. In this example, we thus have a $8 \times 11$ matrix.
+
+```{r}
+myres<-matrix(0.5,nrow=length(which(myvar==1)),
+    ncol=length(which(myvar!=0)))
+```
+
+## Fit the model
+
+Next we fit the MAR model:
+```{r}
+run1<-run.mar(L4.mar, variables=myvar, restrictions=myres, search="exhaustive")
+```
+
+## Show output
+
+Summary
+```{r}
+run1
+```
+
+Some summary statistics for the model
+```{r}
+summary(run1) 
+```
+
+Plots
+```{r}
+plot(run1)
+```
+
+## Model with restrictions
+
+Set some elements of the restriction matrix to 1 to force an element to be included (will never be dropped in searches) and set some to 0 to force that element to always be zero (not in the model).
+
+```{r}
+myres[1,c(1,6,9)]<-c(1,0,0)  
+```
+
+## re-run the analysis
+
+We will use the same variates as `run1` and new restrictions.
+
+```{r}
+run1b<-run.mar(L4.mar,variables=run1,restrictions=myres,"exhaustive")
+```
+
+Plot results.
+```{r}
+plot(run1,run1b)
+```
+
+## run with a different search method
+
+```{r}
+run1c<-run.mar(L4.mar,variables=run1,restrictions=run1,search="fwdstep")
+```
+
+Plot
+```{r}
+plot(run1,run1c,legend=TRUE)
+```
+
+## construct a MAR model using windows
+
+Alternatively one can not pass in `variables` and `restrictions`, and one can interactively select the variables and restrictions.
+```{r eval=FALSE}
+run2<-run.mar(L4.mar,search="exhaustive")
+```

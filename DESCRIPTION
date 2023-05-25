@@ -20,5 +20,9 @@ Description: The MAR1 package provides basic tools for preparing
         such as R.
 License: GPL-2
 Depends: R (>= 2.15.1), leaps, bestglm, stats, tcltk
-Suggests: MARSS (>= 3.2)
+Suggests: 
+    knitr,
+    MARSS (>= 3.2),
+    rmarkdown
 NeedsCompilation: no
+VignetteBuilder: knitr
