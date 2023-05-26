@@ -13,7 +13,7 @@ reference:
     Main fitting function. 
   contents:
   - run.mar
-  - ss_mar1
+  - ss.mar1
   - prepare.data
   - MAR1-package
 
@@ -21,14 +21,14 @@ reference:
   contents:
   - plot.MAR
   - plot.MARtop
-  - hsit.MARtop
+  - hist.MARtop
 
 - title: Printing and Summarizing
   contents:
   - print.MAR
   - print.MARsummary
   - summary.MAR
-  - explort.MAR
+  - export.MAR
 
 - title: Data
   contents:
