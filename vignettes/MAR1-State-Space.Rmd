@@ -1,0 +1,63 @@
+---
+title: "MAR1 State-Space Model"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MAR1-State-Space}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MAR1)
+library(MARSS)
+```
+
+**These examples take 1-2 minutes to run**
+
+## Construct a MAR model
+
+We will use [run.mar()] arguments to set variables and restrictions. See the [run.mar()] page for information. No restrictions on the restriction matrix (all 0.5).
+
+```{r}
+data(L4.mar)
+myvar <- c(0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 2, 2, 2) # 8 variates, 3 covariates
+myres <- matrix(0.5,
+  nrow = length(which(myvar == 1)),
+  ncol = length(which(myvar != 0))
+)
+```
+
+Fit a MAR1 model first.
+
+```{r}
+run1 <- run.mar(L4.mar, variables = myvar, restrictions = myres, search = "exhaustive")
+```
+
+## Fit state-space model
+
+This allows use to include observation error. `control` can be passed in to limit the number of iterations run.
+
+```{r}
+ss.fit <- ss.mar1(L4.mar, run1, control = list(maxit = 50))
+```
+
+## Compare to best fit model
+
+```{r}
+ss.fit$B
+run1$bestfit$B
+```
+
+## Use a known observation error
+
+```{r}
+R <- diag(0.2, 8)
+ss.fit <- ss.mar1(L4.mar, run1, model = list(R = R), control = list(maxit = 50))
+```

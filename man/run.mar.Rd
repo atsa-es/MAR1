@@ -156,33 +156,35 @@ Packages used for exhaustive search methods:\cr
 \dontrun{
 ## These examples take 1-2 minutes to run
 
-## construct a MAR model using 'run.mar' arguments to set variables and restrictions ##
+## construct a MAR model using 'run.mar' arguments to set variables and restrictions 
 data(L4.mar)
 
-myvar<-c(0,0,0,1,1,0,0,0,1,1,1,1,0,0,1,1,0,0,2,2,2)  # 8 variates, 3 covariates
-myres<-matrix(0.5,nrow=length(which(myvar==1)),
-		ncol=length(which(myvar!=0)))  # no restrictions (all 0.5)
+myvar <- c(0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 2, 2, 2) # 8 variates, 3 covariates
+myres <- matrix(0.5,
+  nrow = length(which(myvar == 1)),
+  ncol = length(which(myvar != 0))
+) # no restrictions (all 0.5)
 
-run1<-run.mar(L4.mar, variables=myvar, restrictions=myres, search="exhaustive")
+run1 <- run.mar(L4.mar, variables = myvar, restrictions = myres, search = "exhaustive")
 
-run1  # only some elements of the object are printed
+run1 # only some elements of the object are printed
 str(run1) # to see all elements
 summary(run1) # some summary statistics for the model
 plot(run1)
 
 # set a few restrictions on taxa interactions
-myres[1,c(1,6,9)]<-c(1,0,0)  # included, not included, not included
+myres[1, c(1, 6, 9)] <- c(1, 0, 0) # included, not included, not included
 
 # re-run the analysis with same variates as 'run1' and new restrictions
-run1b<-run.mar(L4.mar,run1,myres,"exhaustive")
-plot(run1,run1b)
+run1b <- run.mar(L4.mar, run1, myres, "exhaustive")
+plot(run1, run1b)
 
 # 'run1' variables and restrictions with a different search method
-run1c<-run.mar(L4.mar,run1,run1,"fwdstep")
-plot(run1,run1c,legend=TRUE)  # plot with legend
+run1c <- run.mar(L4.mar, run1, run1, "fwdstep")
+plot(run1, run1c, legend = TRUE) # plot with legend
 
 ## construct a MAR model using windows to select variables and restrictions ##
-run2<-run.mar(L4.mar,search="exhaustive")
+run2 <- run.mar(L4.mar, search = "exhaustive")
 run2
 summary(run2)
 plot(run2)

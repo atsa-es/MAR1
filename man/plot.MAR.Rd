@@ -12,11 +12,9 @@ Plots the coefficients contained in an object of class \code{MAR} resulting from
 }
 
 \arguments{
-
-\item{x, y, ...}{
-	Objects of class \code{MAR} to be plotted
-}
-
+\item{x}{Object of class \code{MAR} to be plotted}
+\item{y}{Optional additional object of class \code{MAR} to be compared to \code{x}.}
+\item{...}{Not used.}
 \item{legend}{
 	Should a legend be generated?  If set to TRUE, an additional graphics device containing the legend will be generated
 }
@@ -36,3 +34,15 @@ A graphics device containing the coefficient plot, and, if \code{legend=TRUE}, a
 LP Scheef
 }
 
+\examples{
+data(L4.mar)
+myvar <- c(0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2)
+myres <- matrix(0.5,
+  nrow = length(which(myvar == 1)),
+  ncol = length(which(myvar != 0))
+) 
+small <- L4.mar[1:50,]
+run1 <- run.mar(small, variables = myvar, restrictions = myres, search = "random", boot = FALSE)
+
+plot(run1)
+}

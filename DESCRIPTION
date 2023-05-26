@@ -4,7 +4,7 @@ Title: Multivariate Autoregressive Modeling for Analysis of Community Time-Serie
 Version: 2.0
 Date: 2023-05-25
 Authors@R: 
-    c(person("Eli", "Holmes", , "eli.holmes@noaa.gov", role = c("cre"),
+    c(person("Elizabeth Eli", "Holmes", , "eli.holmes@noaa.gov", role = c("cre"),
            comment = c(ORCID = "0000-0001-9128-8393")),
       person("Lindsay P.", "Scheef", , "scheef@utexas.edu", role = c("aut", "cph")))
 Description: The MAR1 package provides basic tools for preparing

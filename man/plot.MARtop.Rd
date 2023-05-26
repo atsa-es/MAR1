@@ -5,7 +5,7 @@
 Plot coefficients of top MAR models
 }
 \description{
-Plots the coefficients of the best-fit models contained in the \code{$top.bestfit} component of an object of class \code{MAR}
+Plots the coefficients of the best-fit models contained in the \code{$top.bestfit} component of an object of class \code{MAR}.
 }
 \usage{
 \method{plot}{MARtop}(x, ...)
@@ -39,4 +39,17 @@ LP Scheef
 \seealso{
 \code{\link{run.mar}}
 
+}
+
+\examples{
+data(L4.mar)
+myvar <- c(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2)
+myres <- matrix(0.5,
+  nrow = length(which(myvar == 1)),
+  ncol = length(which(myvar != 0))
+) 
+small <- L4.mar[1:50,]
+run1 <- run.mar(small, variables = myvar, restrictions = myres, search = "random", boot = FALSE)
+
+plot(run1$top.bestfit)
 }

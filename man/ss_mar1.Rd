@@ -53,22 +53,24 @@ Eli Holmes
 
 data(L4.mar)
 
-myvar<-c(0,0,0,1,1,0,0,0,1,1,1,1,0,0,1,1,0,0,2,2,2)  # 8 variates, 3 covariates
-myres<-matrix(0.5,nrow=length(which(myvar==1)),
-  	ncol=length(which(myvar!=0)))  # no restrictions (all 0.5)
+myvar <- c(0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 2, 2, 2) # 8 variates, 3 covariates
+myres <- matrix(0.5,
+  nrow = length(which(myvar == 1)),
+  ncol = length(which(myvar != 0))
+) # no restrictions (all 0.5)
 
-run1<-run.mar(L4.mar, variables=myvar, restrictions=myres, search="exhaustive")
+run1 <- run.mar(L4.mar, variables = myvar, restrictions = myres, search = "exhaustive")
 
-#control can be passed in to limit the number of iterations run.
-ss.fit=ss.mar1(L4.mar,run1,control=list(maxit=50))
+# control can be passed in to limit the number of iterations run.
+ss.fit <- ss.mar1(L4.mar, run1, control = list(maxit = 50))
 
-#compare to best fit model
+# compare to best fit model
 ss.fit$B
 run1$bestfit$B
 
-#Use a known observation error
-R=diag(0.2,8)
-ss.fit=ss.mar1(L4.mar,run1,model=list(R=R),control=list(maxit=50))
+# Use a known observation error
+R <- diag(0.2, 8)
+ss.fit <- ss.mar1(L4.mar, run1, model = list(R = R), control = list(maxit = 50))
 }
 }
 

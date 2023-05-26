@@ -8,9 +8,11 @@ Prepare data frame for MAR analysis
 Formats a data frame of variable time-series for use in \code{run.mar}
 }
 \usage{
-prepare.data(data, increment=c("month","year","week","day"), fill.gap=0, 
-	replace.0s=c(FALSE,"rand.half","add.ones"),	log=FALSE, 
-	z.method=c(FALSE,"standard","deseason"), order=NULL)
+prepare.data(data,
+  increment = c("month", "year", "week", "day"), fill.gap = 0,
+  replace.0s = c(FALSE, "rand.half", "add.ones"), log = FALSE,
+  z.method = c(FALSE, "standard", "deseason"), order = NULL
+)
 }
 
 \arguments{
@@ -74,6 +76,8 @@ LP Scheef
 
 \examples{
 data(L4.AllDates)
-L4.mar<-prepare.data(data=L4.AllDates, increment="month", fill.gap=0, 
-replace.0s="rand.half", log=TRUE, z.method="deseason")
+L4.mar <- prepare.data(
+  data = L4.AllDates, increment = "month", fill.gap = 0,
+  replace.0s = "rand.half", log = TRUE, z.method = "deseason"
+)
 }

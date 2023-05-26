@@ -39,3 +39,16 @@ LP Scheef
 \seealso{
 \code{\link{plot.MARtop}}
 }
+
+\examples{
+data(L4.mar)
+myvar <- c(0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2)
+myres <- matrix(0.5,
+  nrow = length(which(myvar == 1)),
+  ncol = length(which(myvar != 0))
+) 
+small <- L4.mar[1:50,]
+run1 <- run.mar(small, variables = myvar, restrictions = myres, search = "random", boot=100)
+
+hist(run1$top.bestfit)
+}

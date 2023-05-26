@@ -1,7 +1,7 @@
 #' Test if matrix is diagonal
-#' 
+#'
 #' 0s on the diagonal are fine.
-#' 
+#'
 #' @param x A matrix
 #' @param na.rm TRUE/FALSE  TRUE means that NAs on the diagonal are ignored
 #' @keywords internal
