@@ -2,6 +2,17 @@
 
 Multivariate Autoregressive Modeling for Analysis of Community Time-Series Data
 
+To install MARSS from CRAN:
+```
+install.packages("MARSS")
+library(MAR1)
+```
+To install from our r-universe repository:
+```
+install.packages('MAR1', repos = c('https://atsa-es.r-universe.dev', 'https://cloud.r-project.org'))
+```
+
+
 ## Description
 
 Ives et al. (2003) describe the model framework implemented in this package:

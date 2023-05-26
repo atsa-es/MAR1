@@ -30,3 +30,7 @@ LP Scheef
 \seealso{
 \code{\link{summary.MAR}}
 }
+
+\value{
+Prints a summary of a MAR object.
+}

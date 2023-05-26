@@ -38,7 +38,7 @@ The B and C matrices are constrained by default by the bestfit model in the \cod
 
 \references{
 The MARSS User Guide:  Holmes, E. E., E. J. Ward, and M. D. Scheuerell (2012) Analysis of multivariate time-series using the MARSS package. NOAA Fisheries, Northwest Fisheries Science
-Center, 2725 Montlake Blvd E., Seattle, WA 98112.  Available at \url{http://cran.r-project.org/web/packages/MARSS/index.html}.
+Center, 2725 Montlake Blvd E., Seattle, WA 98112.  Available at \url{https://CRAN.R-project.org/package=MARSS}.
 }
 
 \author{
@@ -71,3 +71,18 @@ R=diag(0.2,8)
 ss.fit=ss.mar1(L4.mar,run1,model=list(R=R),control=list(maxit=50))
 }
 }
+
+\value{
+A list with the elements
+
+\item{ssfit}{ A marssMLE object output from \code{MARSS()}. }
+\item{A}{ The estimated A matrix}
+\item{B}{ The estimated B matrix}
+\item{C}{ The estimated C matrix}
+\item{process.errors}{The process errors}
+\item{observation.errors}{The observation errors}
+\item{AIC}{AIC}
+\item{AIC}{AICc}
+\item{log.likelihood}{log likelihood}
+}
+

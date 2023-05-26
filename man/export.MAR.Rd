@@ -36,3 +36,7 @@ LP Scheef
 \seealso{
 \code{\link{run.mar}}
 }
+
+\value{
+Writes to a directory.
+}

@@ -1,13 +1,12 @@
 Package: MAR1
 Type: Package
-Title: Multivariate Autoregressive Modeling for Analysis of Community
-        Time-Series Data
+Title: Multivariate Autoregressive Modeling for Analysis of Community Time-Series Data
 Version: 2.0
 Date: 2023-05-25
 Authors@R: 
     c(person("Eli", "Holmes", , "eli.holmes@noaa.gov", role = c("cre"),
            comment = c(ORCID = "0000-0001-9128-8393")),
-      person("Lindsay P.", "Scheef", , "scheef@utexas.edu", role = c("aut")))
+      person("Lindsay P.", "Scheef", , "scheef@utexas.edu", role = c("aut", "cph")))
 Description: The MAR1 package provides basic tools for preparing
         ecological community time-series data for MAR modeling,
         building MAR-1 models via model selection and bootstrapping,
@@ -26,3 +25,4 @@ Suggests:
     rmarkdown
 NeedsCompilation: no
 VignetteBuilder: knitr
+RoxygenNote: 7.2.3

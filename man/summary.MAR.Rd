@@ -30,3 +30,7 @@ LP Scheef
 \seealso{
 \code{\link{run.mar}}
 }
+
+\value{
+Prints a summary of a MAR object.
+}

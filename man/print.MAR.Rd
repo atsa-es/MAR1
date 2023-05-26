@@ -31,3 +31,6 @@ Formats and prints the following components of a \code{MAR} object when the obje
 LP Scheef
 }
 
+\value{
+Prints a selection of components of a MAR object.
+}

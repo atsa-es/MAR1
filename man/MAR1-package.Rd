@@ -30,9 +30,9 @@ The \pkg{MAR1} package includes the following basic functions:\cr
 }
 
 \author{
-Lindsay P. Scheef
+Lindsay P. Scheef <\email{scheef@utexas.edu}>
 
-Maintainer: <\email{scheef@utexas.edu}>
+Maintainer: Eli Holmes <\email{eli.holmes@noaa.gov}>
 }
 
 \references{

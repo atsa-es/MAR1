@@ -38,5 +38,4 @@ LP Scheef
 
 \seealso{
 \code{\link{plot.MARtop}}
-
 }

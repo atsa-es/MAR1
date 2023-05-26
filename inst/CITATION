@@ -8,7 +8,7 @@ citEntry(entry="Manual",
          author = personList(as.person("Lindsay Scheef")),
          year = year,
          note = vers,
-         url = "http://cran.r-project.org/web/packages/MAR1/",
+         url = "https://CRAN.R-project.org/package=MAR1",
          textVersion =
          paste("Lindsay Scheef (", year,
                "). MAR1: Multivariate Autoregressive Modeling for Analysis of Community Time-Series Data. ",
