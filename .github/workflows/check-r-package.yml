@@ -14,10 +14,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
     steps:
-      - run: sudo apt-get install xvfb
-      - run: export DISPLAY=:99.0
-      - run: xvfb start
-      
+      - run: DISPLAY=:1.0
       - uses: actions/checkout@v3
 
       - uses: r-lib/actions/setup-r@v2
