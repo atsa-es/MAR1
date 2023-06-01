@@ -18,10 +18,10 @@ Description: The MAR1 package provides basic tools for preparing
         with time-series modeling or command-based statistics programs
         such as R.
 License: GPL-2
-Depends: R (>= 2.15.1), leaps, bestglm, stats, tcltk
+Depends: R (>= 4.0.0), leaps, bestglm, stats, tcltk
 Suggests: 
     knitr,
-    MARSS (>= 3.2),
+    MARSS (>= 3.11.0),
     rmarkdown
 NeedsCompilation: no
 VignetteBuilder: knitr
