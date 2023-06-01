@@ -1,7 +1,7 @@
 Package: MAR1
 Type: Package
 Title: Multivariate Autoregressive Modeling for Analysis of Community Time-Series Data
-Version: 2.0
+Version: 2.1
 Date: 2023-05-30
 Authors@R: 
     c(person("Elizabeth Eli", "Holmes", , "eli.holmes@noaa.gov", role = c("cre", "ctb"),
