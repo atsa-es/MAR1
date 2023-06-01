@@ -2,6 +2,12 @@
 
 MAR1: Multivariate Autoregressive Modeling for Analysis of Community Time-Series Data
 
+[![cran version](https://www.r-pkg.org/badges/version/MAR1)](https://cran.r-project.org/package=MAR1)
+[![github](https://img.shields.io/github/v/release/atsa-es/MAR1?color=brightgreen&label=GitHub)](https://github.com/atsa-es/MAR1/releases/latest)
+[![check-package](https://github.com/atsa-es/MAR1/actions/workflows/check-r-package.yml/badge.svg)](https://github.com/atsa-es/MAR1/actions/workflows/check-r-package.yml)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/grand-total/MAR1?)](https://github.com/r-hub/cranlogs.app)
+[![](https://cranlogs.r-pkg.org/badges/MAR1?color=FFD700)](https://www.r-pkg.org/pkg/MAR1)
+
 To install MAR1 from CRAN:
 ```
 install.packages("MAR1")
