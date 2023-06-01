@@ -5,11 +5,12 @@ vers <- paste("R package version", meta$Version)
 
 bibentry(bibtype="Manual",
          title = "MAR1:  Multivariate Autoregressive Modeling for Analysis of Community Time-Series Data",
-         author = personList(as.person("Lindsay Scheef")),
+         author = c(as.person("Lindsay P. Scheef"),
+                    as.person("Elizabeth Eli Holmes")),
          year = year,
          note = vers,
          url = "https://CRAN.R-project.org/package=MAR1",
          textVersion =
-         paste("Lindsay Scheef (", year,
+         paste("Lindsay Scheef and Elizabeth Eli Holmes (", year,
                "). MAR1: Multivariate Autoregressive Modeling for Analysis of Community Time-Series Data. ",
                vers, ".", sep="") )
