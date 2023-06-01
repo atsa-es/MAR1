@@ -37,7 +37,7 @@ jobs:
       - if: matrix.config.os == 'macos-latest'
         run: brew install --cask xquartz
       - if: matrix.config.os == 'ubuntu-latest'
-        run: sudo apt install xorg
+        run: sudo apt-get install xorg openbox
         
       - uses: actions/checkout@v3
 
