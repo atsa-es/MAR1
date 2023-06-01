@@ -47,7 +47,7 @@ myres <- matrix(0.5,
   nrow = length(which(myvar == 1)),
   ncol = length(which(myvar != 0))
 ) 
-small <- L4.mar[1:50,]
+small <- L4.mar[1:20,]
 run1 <- run.mar(small, variables = myvar, restrictions = myres, search = "random", boot=100)
 
 hist(run1$top.bestfit)
