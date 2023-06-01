@@ -5,6 +5,7 @@ docs
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
-^inst/*.png
-^inst/*.R
+^inst/logo\.png
+^inst/image1\.png
+^inst/make_hex\.R
 ^\.github$

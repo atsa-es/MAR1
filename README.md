@@ -1,10 +1,10 @@
-# MAR1package
+<img src='man/figures/logo.png' align="right" width="139" height="139" style="margin:15px 10px"/>
 
-Multivariate Autoregressive Modeling for Analysis of Community Time-Series Data
+MAR1: Multivariate Autoregressive Modeling for Analysis of Community Time-Series Data
 
-To install MARSS from CRAN:
+To install MAR1 from CRAN:
 ```
-install.packages("MARSS")
+install.packages("MAR1")
 library(MAR1)
 ```
 To install from our r-universe repository:
@@ -34,9 +34,9 @@ The MAR1 package includes the following basic functions:
 
 ## author
 
-Creator: Lindsay P. Scheef <\email{scheef@utexas.edu}>
+Creator: Lindsay P. Scheef
 
-Maintainer: Eli Holmes <\email{eli.holmes@noaa.gov}>
+Maintainer: Eli Holmes 
 
 ## References
 
