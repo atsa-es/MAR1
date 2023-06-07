@@ -36,14 +36,7 @@ Prints a selection of components of a MAR object.
 }
 
 \examples{
-data(L4.mar)
-myvar <- c(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 2)
-myres <- matrix(0.5,
-  nrow = length(which(myvar == 1)),
-  ncol = length(which(myvar != 0))
-) 
-small <- L4.mar[1:20,]
-run1 <- run.mar(small, variables = myvar, restrictions = myres, search = "random", boot = FALSE)
-
+# load a sample MAR model fit. See \code{\link{run1}}.
+data(run1)
 print(run1)
 }

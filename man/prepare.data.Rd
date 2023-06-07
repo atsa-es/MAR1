@@ -75,9 +75,11 @@ LP Scheef
 }
 
 \examples{
+\dontrun{
 data(L4.AllDates)
 L4.mar <- prepare.data(
   data = L4.AllDates, increment = "month", fill.gap = 0,
   replace.0s = "rand.half", log = TRUE, z.method = "deseason"
 )
+}
 }
